@@ -49,6 +49,6 @@ const rest = new REST({ version: "10"}).setToken(process.env.TOKEN);
 
         console.log("Slash commands were registered succesfully!");
     } catch (error) {
-        console.log(`There was an error: ${error}`);
+        console.log(`Encountered error: ${error}`);
     }
 })();

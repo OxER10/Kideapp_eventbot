@@ -28,6 +28,6 @@ module.exports = (exceptions = []) => {
         }
     }
 
-    // Returns only command names for dynamic filepaths
+    // Returns only command names for dynamic filepaths as objects
     return localCommands;
 }
