@@ -1,6 +1,16 @@
 const { ApplicationCommandOptionType } = require("discord.js");
+const getKideappEvents = require("../../utils/getKideappEvents");
+const kideEventEmbedder = require("../../utils/kideEventEmbedder")
 
 module.exports = {
+    callback: async (client, interaction) => {
+        getKideappEvents().then (data => {
+            for (const event of data.model) {
+                interaction.channel.send({ embeds: [kideEventEmbedder(event)]});
+            }
+        });
+    },
+
     name: "eventskeyword",
     description: "Shows event with desired Keywords.",
     options: [
@@ -23,4 +33,4 @@ module.exports = {
             required: false,
         },
     ],
-}
+};

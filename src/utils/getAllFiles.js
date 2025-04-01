@@ -35,4 +35,4 @@ module.exports = (directory, foldersOnly = false) => {
 
     // returns filepaths as objects
     return fileNames;
-}
+};

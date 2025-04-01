@@ -1,11 +1,11 @@
-// Function that 
-
 // Imports these to variables
 const path = require("path");
 const getAllFiles = require("../utils/getAllFiles");
 
 // Exports this function to be used
 module.exports = (client) => {
+    
+
     // Creates the paths to the folders
     const eventFolders = getAllFiles(path.join(__dirname, "..", "events"), true);
 
@@ -23,9 +23,10 @@ module.exports = (client) => {
         // Loops through every event name and starts the required event handlers
         client.on(eventName, async (argument) => {
             for (const eventFile of eventFiles) {
+                
                 const eventFunction = require(eventFile);
                 await eventFunction(client, argument);
             }
-        })
+        });
     }
-}
+};
