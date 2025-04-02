@@ -9,7 +9,7 @@ const deleteAllCommands = require("../../utils/deleteAllCommands");
 
 module.exports = async (client) => {
     try {
-        deleteAllCommands;
+        await deleteAllCommands;
         const localCommands = getLocalCommands();
         const applicationCommands = await getApplicationCommands(client, testServer);
 

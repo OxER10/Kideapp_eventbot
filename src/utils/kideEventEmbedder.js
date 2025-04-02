@@ -23,15 +23,14 @@ module.exports = (data) => {
     let minPrice = data.minPrice.eur;
     let maxPrice = data.maxPrice.eur;
     if (minPrice === maxPrice) {
-        let price = maxPrice;
-        if(price == undefined) {
-            price = "Free entry";
+        if(maxPrice == undefined) {
+            maxPrice = "Free entry";
         }
         else {
-            price = price / 100.0 + "€"; 
+            maxPrice = maxPrice / 100.0 + "€"; 
         }
         eventEmbed.setDescription(
-            `\n⌚ - ${new Date(data.dateActualFrom).toLocaleDateString()} - ${new Date(data.dateActualUntil).toLocaleDateString()}\n🗺️ - ${data.place}\n💸 - ${price}\n🎫 - ${tickets}\n❤️ - ${data.favoritedTimes}`
+            `\n⌚ - ${new Date(data.dateActualFrom).toLocaleDateString()} - ${new Date(data.dateActualUntil).toLocaleDateString()}\n🗺️ - ${data.place}\n💸 - ${maxPrice}\n🎫 - ${tickets}\n⌛ - ${new Date(data.dateSalesFrom).toLocaleDateString()} - ${new Date(data.dateSalesUntil).toLocaleDateString()}\n❤️ - ${data.favoritedTimes}`
             //eventEmbed.setDescription(`Time: ${new Date(data.dateActualFrom).toLocaleDateString()} - ${new Date(data.dateActualFrom).toLocaleDateString()}Place: ${data.place}Price: ${price}Tickets: ${tickets}Favorites: ${data.favoritedTimes}`
         );
     }
@@ -39,7 +38,7 @@ module.exports = (data) => {
         maxPrice = maxPrice / 100.0 + "€";
         minPrice = minPrice / 100.0 + "€";
         eventEmbed.setDescription(
-            `\n⌚ - ${new Date(data.dateActualFrom).toLocaleDateString()} - ${new Date(data.dateActualUntil).toLocaleDateString()}\n🗺️ - ${data.place}\n💸 - ${minPrice}-${maxPrice}\n🎫 - ${tickets}\n❤️ - ${data.favoritedTimes}`
+            `\n⌚ - ${new Date(data.dateActualFrom).toLocaleDateString()} - ${new Date(data.dateActualUntil).toLocaleDateString()}\n🗺️ - ${data.place}\n💸 - ${minPrice}-${maxPrice}\n🎫 - ${tickets}\n⌛ - ${new Date(data.dateSalesFrom).toLocaleDateString()} - ${new Date(data.dateSalesUntil).toLocaleDateString()}\n❤️ - ${data.favoritedTimes}`
             //eventEmbed.setDescription(`Time: ${new Date(data.dateActualFrom).toLocaleDateString()} - ${new Date(data.dateActualFrom).toLocaleDateString()}Place: ${data.place}Price: ${minPrice}-${maxPrice}Tickets: ${tickets}Favorites: ${data.favoritedTimes}`
         );
     }

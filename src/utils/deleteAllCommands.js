@@ -1,5 +1,6 @@
 require("dotenv").config();
-const { REST, Routes, ApplicationCommandOptionType } = require("discord.js");
+const { testServer, clientid } = require("../../config.json");
+const { REST, Routes} = require("discord.js");
 
 const rest = new REST({ version: "10"}).setToken(process.env.TOKEN);
 
@@ -8,7 +9,7 @@ module.exports = (async () => {
         console.log("Wiping slash commands...");
 
         await rest.put(
-            Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+            Routes.applicationGuildCommands(clientid, testServer),
             { body: [] }
         );
 
